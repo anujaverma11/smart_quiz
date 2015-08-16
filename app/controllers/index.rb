@@ -32,7 +32,7 @@ get '/oauth/google/redirect' do
       p "student_info_response: #{student_info_response.parsed_response}"
       student = update_student_from_oauth(student_info_response.parsed_response, token, expires, jwt)
       p student.id
-      session[:id] = student.id
+      session[:student_id] = student.id
       status 200 # this is not necessarily an accurate status number
     end
   end
