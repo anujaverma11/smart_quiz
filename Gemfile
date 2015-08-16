@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.1.0'
 
 # Oauth2
 gem 'oauth2'
@@ -18,6 +18,9 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'shotgun'
+gem 'httparty'
+gem 'acts_as_tree', '~> 2.2.0'
+
 
 group :test do
   gem 'shoulda-matchers'
