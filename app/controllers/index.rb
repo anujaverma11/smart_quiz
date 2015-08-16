@@ -5,7 +5,7 @@ get '/' do
 end
 
 get '/oauth/google' do
-  redirect "https://accounts.google.com/o/oauth2?client_id=#{ENV['CLIENT_ID']}&response_type=code&scope=openid%20email&redirect_uri=http://localhost:9393/oauth/google/redirect&state=#{ENV['STATE']}"
+  redirect "https://accounts.google.com/o/oauth2/auth?client_id=#{ENV['CLIENT_ID']}&response_type=code&scope=openid%20email&redirect_uri=http://localhost:9393/oauth/google/redirect&state=#{ENV['STATE']}"
 end
 
 get '/oauth/google/redirect' do
@@ -16,6 +16,7 @@ get '/oauth/google/redirect' do
     if params[:state] != ENV['STATE']
       p "HACKER ALERT"
     else
+      p "so far so good"
       options = { "code" => params[:code],
                   "redirect_uri" => "http://localhost:9393/oauth/google/redirect",
                   "client_id" => ENV['CLIENT_ID'],
@@ -27,11 +28,12 @@ get '/oauth/google/redirect' do
       expires = token_response.parsed_response["expires_in"]
       jwt = token_response.parsed_response["id_token"]
 
-      user_info_response = HTTParty.get("http://www.googleapis.com/oauth2/v3/userinfo", :headers => { "Authorization" => "Bearer #{token}" })
-
-      user = update_student_from_oauth(user_info_response.parsed_response, token, expires, jwt)
-
-      session[:id] = user.id
+      student_info_response = HTTParty.get("https://www.googleapis.com/oauth2/v3/userinfo", :headers => { "Authorization" => "Bearer #{token}" })
+      p "student_info_response: #{student_info_response.parsed_response}"
+      student = update_student_from_oauth(student_info_response.parsed_response, token, expires, jwt)
+      p student.id
+      session[:id] = student.id
+      status 200 # this is not necessarily an accurate status number
     end
   end
 end
