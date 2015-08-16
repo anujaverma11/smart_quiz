@@ -1,0 +1,18 @@
+<h1><%= @student_assessment_subject %></h1>
+<div class="quiz-container" id="<%= @student_assessment_id %>"></div>
+<script>
+$(document).ready(function() {
+  var id = $('.quiz-container').attr('id');
+  $.ajax({
+    url: "/student_assessments/" + id + "/student_assessment_questions",
+    dataType: 'JSON'
+  }).done(function(responseData) {
+    console.log("success");
+    console.log(responseData);
+  }).fail(function(responseData) {
+    console.log("fail");
+    console.log(responseData);
+  })
+
+});
+</script>
