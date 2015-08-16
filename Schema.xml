@@ -55,7 +55,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="13" y="321" name="assesements">
+<table x="13" y="321" name="assessments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -73,10 +73,9 @@
 <datatype>VARCHAR</datatype>
 <default>NULL</default><comment>Link to Content</comment>
 </row>
-<row name="parent_assesement_id" null="1" autoincrement="0">
+<row name="parent_assessment_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="assesements" row="id" />
-</row>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -100,13 +99,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="291" y="322" name="assesment_questions">
+<table x="291" y="322" name="assessment_questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="assesement_id" null="1" autoincrement="0">
+<row name="assessment_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="assesements" row="id" />
+<default>NULL</default><relation table="assessments" row="id" />
 </row>
 <row name="question_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -116,7 +115,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="241" y="128" name="students_assesements">
+<table x="241" y="128" name="students_assessments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -124,9 +123,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="students" row="id" />
 </row>
-<row name="assesement_id" null="1" autoincrement="0">
+<row name="assessment_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="assesements" row="id" />
+<default>NULL</default><relation table="assessments" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -150,13 +149,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="554" y="129" name="student_assesement_questions">
+<table x="554" y="129" name="student_assessment_questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="students_assesements_id" null="1" autoincrement="0">
+<row name="students_assessments_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="students_assesements" row="id" />
+<default>NULL</default><relation table="students_assessments" row="id" />
 </row>
 <row name="question_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -165,6 +164,14 @@
 <row name="option_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="options" row="id" />
+</row>
+<row name="answered" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>Boolean</comment>
+</row>
+<row name="position" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>Integer for question aswered</comment>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
