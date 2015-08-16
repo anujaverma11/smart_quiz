@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :correct_answer_id
       t.integer :counter
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

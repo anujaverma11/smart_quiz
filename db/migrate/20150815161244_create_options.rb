@@ -5,7 +5,7 @@ class CreateOptions < ActiveRecord::Migration
       t.integer :question_id
       t.integer :counter
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

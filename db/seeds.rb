@@ -22,8 +22,8 @@ Option.create(text: "4", question_id: 2, counter: 0) #id 6
 Option.create(text: "5", question_id: 2, counter: 0) #id 7
 Option.create(text: "6", question_id: 2, counter: 0) #id 8 correct
 
-StudentAssessmentQuestion.create(student_assessment_id: 1, question_id: 1, student_answer: 4)
-StudentAssessmentQuestion.create(student_assessment_id: 1, question_id: 1, student_answer: 8)
+StudentAssessmentQuestion.create(student_assessment_id: 1, question_id: 1, option_id: 4)
+StudentAssessmentQuestion.create(student_assessment_id: 1, question_id: 1, option_id: 8)
 
 
 

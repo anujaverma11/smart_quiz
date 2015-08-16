@@ -4,7 +4,7 @@ class CreateAssessmentQuestions < ActiveRecord::Migration
       t.integer :assessment_id
       t.integer :question_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
