@@ -6,4 +6,9 @@ class Question < ActiveRecord::Base
   has_many  :students_assessments, through:  :student_assessment_questions
 
   has_many :options
+
+  def increment_counter
+    self.counter += 1
+    self.save
+  end
 end
