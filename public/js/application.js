@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(document).ready(function() {
   $(".submitBtn").click(function(e) {
     e.preventDefault()

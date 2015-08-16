@@ -31,17 +31,7 @@ get '/student_assessments/:student_assessment_id/student_assessment_questions' d
     @questions_to_display << first_question
   end
 
-
-# get '/student/:id/assessment/:id' do
-#   @assessment = Assessment.find_by(id: params[:id])
-#   @assessmentquestions = AssessmentQuestion.where(assessment_id: @assessment.id)
-#   @questions = @assessmentquestions.map { |x| Question.find(x.question_id)}
-#   @option = Option.where(question_id: @questions[1].id)
-#   erb :quiz
-# end
-
-
-  if @questions_to_display.count > 0 && @questions_to_display.last.answered && !next_assessment?
+  if @questions_to_display.last.answered && !next_assessment?
     next_question = (all_questions - @questions_to_display).shuffle.pop
     next_question.position = @questions_to_display.length
     next_question.save
@@ -53,10 +43,17 @@ get '/student_assessments/:student_assessment_id/student_assessment_questions' d
   erb :quiz
 end
 
+# get '/student/:id/assessment/:id' do
+#   @assessment = Assessment.find_by(id: params[:id])
+#   @assessmentquestions = AssessmentQuestion.where(assessment_id: @assessment.id)
+#   @questions = @assessmentquestions.map { |x| Question.find(x.question_id)}
+#   @option = Option.where(question_id: @questions[1].id)
+#   erb :quiz
+# end
 
-get '/student_assessments/:student_assessment_id/student_assessment_questions/:student_assessment_id' do
+get '/student_assessments/:student_assessment_id/student_assessment_questions/:student_assessment_question_id' do
   #set active question
-  active_assessment_question = StudentAssessmentQuestion.find(params[:student_assessment_id])
+  active_assessment_question = StudentAssessmentQuestion.find(params[:student_assessment_question_id])
   active_question = Question.find_by(id: active_assessment_question.question_id)
   #set question text
   @question_text = active_question.text
@@ -93,4 +90,3 @@ post '/student_assessments/:student_assessment_id/student_assessment_questions/:
   #redirect to get route for same question
   redirect "/student_assessments/:student_assessment_id/student_assessment_questions/#{params[:question_id]}"
 end
->>>>>>> master
