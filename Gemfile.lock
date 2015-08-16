@@ -14,6 +14,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_tree (2.2.0)
+      activerecord (>= 3.0.0)
     arel (6.0.0)
     backports (3.6.4)
     builder (3.2.2)
@@ -31,6 +33,9 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.2)
     jwt (1.5.1)
@@ -96,10 +101,12 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.2.0)
   activesupport (~> 4.2.0)
+  acts_as_tree (~> 2.2.0)
   capybara
   dotenv
   factory_girl
   faker
+  httparty
   oauth2
   pg
   rack-test
@@ -109,6 +116,3 @@ DEPENDENCIES
   shoulda-matchers
   sinatra
   sinatra-contrib
-
-BUNDLED WITH
-   1.10.5
