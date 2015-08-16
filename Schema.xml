@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: https://socrates.devbootcamp.com//sql.html? -->
+<!-- Active URL: https://socrates.devbootcamp.com//sql.html -->
 <sql>
 <datatypes db="mysql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -141,8 +141,7 @@
 <default>NULL</default></row>
 <row name="correct_answer_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="options" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="counter" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><comment>Count the number of times question asked.</comment>
