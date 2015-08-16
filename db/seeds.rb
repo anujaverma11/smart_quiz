@@ -3,8 +3,11 @@ Student.create(name: "Joe") #id 2
 
 StudentAssessment.create(student_id: 1, assessment_id: 1) #id 1 (for student 1)
 StudentAssessment.create(student_id: 2, assessment_id: 1) #id 1 (for student 2)
+StudentAssessment.create(student_id: 3, assessment_id: 1)
+StudentAssessment.create(student_id: 3, assessment_id: 2)
 
 Assessment.create(subject: "Math") #id 1
+Assessment.create(subject: "Math II", due_date: "08/17/2015", source: "Chapter 1");
 
 Question.create(text: "What is 2+2 ?", correct_answer_id: 4, counter: 0) #id 1
 Question.create(text: "What is 3+3 ?", correct_answer_id: 8, counter: 0) #id 2

@@ -12,5 +12,17 @@ helpers do
     student.save
     student
   end
+
+  def login(student_id)
+    session[:user_id] = student_id
+  end
+
+  def logged_in?
+    !!session[:user_id]
+  end
+
+  def log_out
+    session[:user_id] = nil
+  end
 end
 

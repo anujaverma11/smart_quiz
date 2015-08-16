@@ -1,4 +1,5 @@
 <form class="pure-form" action="/submitquiz" method="post">
+
     <li><%= @question_text %></li>
     <% @options.each do |line| %>
       <label for="option" class="pure-radio"><%= line.text %></label>
@@ -7,3 +8,4 @@
     <% end %><br>
     <input class="pure-button submitBtn" type="submit" value="Submit">
 </form>
+
