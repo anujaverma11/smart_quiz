@@ -29,7 +29,7 @@ get '/oauth/google/redirect' do
 
       user_info_response = HTTParty.get("http://www.googleapis.com/oauth2/v3/userinfo", :headers => { "Authorization" => "Bearer #{token}" })
 
-      user = update_user_from_oauth(user_info_response.parsed_response, token, expires, jwt)
+      user = update_student_from_oauth(user_info_response.parsed_response, token, expires, jwt)
 
       session[:id] = user.id
     end
