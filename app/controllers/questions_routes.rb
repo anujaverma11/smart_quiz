@@ -6,7 +6,7 @@ post '/student_assessments/:student_assessment_id/student_assessment_questions/n
   StudentAssessmentQuestion.create(args)
 end
 
-get 'student_assessments/:id' do
-  #make sure the right student is logged in
+# get 'student_assessments/:id' do
+#   #make sure the right student is logged in
 
-end
+# end

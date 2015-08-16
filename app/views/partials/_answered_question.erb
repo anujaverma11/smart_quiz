@@ -1,11 +1,6 @@
 <form class="pure-form" action="/submitquiz" method="post">
-    <li><%= @answered_question.text %></li>
-    <% @option.each do |line| %>
-      <% if  %>
-      <label for="option" class="pure-radio"><%= line.text %></label>
-      <input type="hidden" id="question" name = "question" value=<%= line.question_id %> >
-      <input id="option" type="radio" name = "option" value=<%= line.id %>>
-
-    <% end %><br>
-    <input class="pure-button submitBtn" type="submit" value="Submit">
+    <li><%= @question_text %></li>
+    <label for="option" class="pure-radio"><%= @option_text %></label>
+    <input id="option" type="radio" name="option">
+    <br>
 </form>
