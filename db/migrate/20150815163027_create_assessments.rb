@@ -7,7 +7,7 @@ class CreateAssessments < ActiveRecord::Migration
       t.string  :source
       t.integer :parent_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

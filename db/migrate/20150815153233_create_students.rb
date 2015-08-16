@@ -10,7 +10,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :picture
       t.string  :jwt
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

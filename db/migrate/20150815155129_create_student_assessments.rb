@@ -4,7 +4,7 @@ class CreateStudentAssessments < ActiveRecord::Migration
       t.integer :student_id
       t.integer :assessment_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
