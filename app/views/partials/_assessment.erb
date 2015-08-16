@@ -1,0 +1,10 @@
+<form class="pure-menu">
+  <ul class="pure-menu-list">
+    <% @assessments.each do |assessment| %>
+      <li class="pure-menu-item">
+        <a href="/student/<%= @student.id %>/assessment/<%= assessment.id %>" class="pure-menu-link"><%= assessment.subject %> Due Date: <%= assessment.due_date %></a>
+      </li>
+    <% end %>
+  </ul>
+</form>
+

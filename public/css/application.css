@@ -1,4 +1,4 @@
-html {
+div {
     margin: auto;
     width: 60%;
     border:3px solid #8AC007;
@@ -8,3 +8,26 @@ html {
 h1 {
   text-align: center;
 }
+
+.homepage {
+  background-image: url("http://localhost:9393/chalkboard.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  laft: 0;
+}
+
+.profile {
+  background-image: url("http://subtlepatterns.com/patterns/ricepaper.png");
+  background-repeat: repeat;
+
+  "}
+
+
+
+
+

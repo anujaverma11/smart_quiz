@@ -25,7 +25,7 @@ var answerQuestion = function(optionID, questionID, studentAssesmentID) {
   studentAssesmentID =
 
   $.ajax({
-    url: "/student_assessments/" + studentAssesmentID + "/student_assessment_questions/new"
+    url: "/student_assessments/" + studentAssesmentID + "/student_assessment_questions/new",
     method: 'POST',
     data: dataObject
   }).done(function(responseData) {

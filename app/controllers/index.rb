@@ -1,6 +1,6 @@
 enable :sessions
 
-get '/' do
+post '/homepage' do
   redirect 'oauth/google'
 end
 
@@ -31,9 +31,11 @@ get '/oauth/google/redirect' do
       student_info_response = HTTParty.get("https://www.googleapis.com/oauth2/v3/userinfo", :headers => { "Authorization" => "Bearer #{token}" })
       p "student_info_response: #{student_info_response.parsed_response}"
       student = update_student_from_oauth(student_info_response.parsed_response, token, expires, jwt)
-      p student.id
-      session[:id] = student.id
+      p "student.id: #{student.id}"
+      login(student.id)
+      # session[:id] = student.id
       status 200 # this is not necessarily an accurate status number
+      redirect "/student/#{student.id}"
     end
   end
 end

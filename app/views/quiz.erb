@@ -1,21 +1,16 @@
-
-
 <h1>
-  <%= @assessment.assestype %>
+  title
 </h1>
 
 <hr>
 
 <div id="questions">
     <ol>
+      <%= erb :"partials/_question"%>
 
+<button id="submitBtn">Submit</button>
 
-        <%= erb :"partials/_question"%>
-
-     <!--  <button id="submitBtn">Submit</button> -->
-    </ol>
 
 </div>
-
 
 
