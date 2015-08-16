@@ -19,7 +19,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'httparty'
-gem 'acts_as_tree', '~> 2.2.0'
+gem 'acts_as_tree'
 
 
 group :test do
