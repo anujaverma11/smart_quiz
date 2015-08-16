@@ -1,16 +1,34 @@
-<h1>
-  title
-</h1>
 
-<hr>
-
+<br>
 <div id="questions">
-    <ol>
-      <%= erb :"partials/_question"%>
-
-<button id="submitBtn">Submit</button>
-
-
+    <ol class="qlist" id="<%= @assessment_id %>">
+      <% @questions_to_display.each do |question| %>
+        <li class="question" id="<%= question.id %>"></li>
+      <% end %>
+    </ol>
 </div>
+<% if @complete %>
+  <button id="submitBtn">Finish</button>
+<% end %>
 
+<script>
+$(document).ready(function() {
+  console.log("ready");
+  $('.question').html(function() {
+    var assessment_id = $('.qlist').attr('id');
+    var id = $(this).attr('id');
+    $.ajax({
+      url: "/student_assessments/" + assessment_id + "/student_assessment_questions/" + id,
+      dataType: 'HTML'
+    }).done(function(responseData) {
+      console.log("success");
+      console.log(this);
+      return responseData;
+    }).fail(function(responseData) {
+      console.log("fail");
+    })
+  })
+});
+
+</script>
 
