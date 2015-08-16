@@ -101,7 +101,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.2.0)
   activesupport (~> 4.2.0)
-  acts_as_tree (~> 2.2.0)
+  acts_as_tree
   capybara
   dotenv
   factory_girl
