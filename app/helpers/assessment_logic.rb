@@ -22,33 +22,19 @@ helpers do
 
   def next_assessment?
     if in_a_row? || enough_correct? || fucking_dumb?
-
-      #robert's next method to run
-      else
-        next_question
+      return true
+    else
+      return false
     end
   end
 
 
   def answered?
-    @current_student_assessment_question.answered == true
+    @current_student_assessment_question.answered
   end
 
   def correct_answer?
-    @correct_count = 0
-    @incorrect_count = 0
-    case
-      when answered? && @current_student_assessment_question.option_id == @current_question.correct_answer_id
-        @correct_count += 1
-      when !answered?
-        p "no answer to check"
-      when answered? && @current_student_assessment_question.option_id != @current_question.correct_answer_id
-        incorrect_count += 1
-    end
-     # if answered?
-    #   @current_student_assessment_question.option_id == @current_question.correct_answer_id
-    # else
-    #   p "no answer to check"
+    @current_student_assessment_question.option_id == @current_question.correct_answer_id
   end
 
   def fucking_dumb?
@@ -60,6 +46,16 @@ helpers do
   end
 
   def in_a_row?
-    #
+    @correct_array = []
+    if correct_answer?
+      @correct_array << @current_student_assessment_question.position
+      if correct_array.length >= 4
+        return true
+      else
+        return false
+    else
+      @correct_array.clear
+      return false
+    end
   end
 end
