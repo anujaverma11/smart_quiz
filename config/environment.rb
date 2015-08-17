@@ -22,6 +22,7 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'httparty'
+require 'faker'
 
 
 # Some helper constants for path-centric logic
